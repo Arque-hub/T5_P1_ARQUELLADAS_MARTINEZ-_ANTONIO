@@ -1,54 +1,54 @@
-# Burney Relief (Queen of the Night) – 3D Model Processing
+Práctica: Publicación de Modelo 3D "Mummy Mask" en la Web
+Descripción
+Este repositorio contiene el resultado de la práctica de digitalización, simplificación y publicación web del modelo 3D Mummy Mask. El objetivo ha sido transformar una nube de puntos densa en una malla ligera y texturizada, apta para su visualización interactiva en la web mediante X3Dom y GitHub Pages.
 
-***
+Modelo seleccionado
+Nombre: Mummy Mask
 
-## Descripción
+Vértices originales: 255,979
 
-Este repositorio contiene el resultado de la práctica de procesado y publicación de un modelo 3D patrimonial, siguiendo los pasos indicados en la asignatura de Digitalización del Patrimonio Cultural (UNED).  
-El modelo utilizado es **burney_relief_queen_of_the_night_draft**.  
-El flujo de trabajo se ha realizado íntegramente con MeshLab y herramientas libres.
+Proceso seguido
+1. Carga y Análisis Inicial
+Importación del modelo original en MeshLab.
 
-## Proceso seguido
+Verificación de atributos: número de vértices, presencia de color y normales.
 
-1. **Importación del modelo:**  
-   Se importó la nube de puntos original en MeshLab.
+2. Triangulación
+Comprobación y cálculo de normales si era necesario.
 
-2. **Cálculo de normales:**  
-   Se calcularon normales para la nube de puntos si era necesario.
+Generación de la malla de triángulos usando el filtro Surface Reconstruction: Screened Poisson (profundidad 10).
 
-3. **Triangulación:**  
-   Se generó una malla de triángulos mediante el filtro *Screened Poisson*.
+Visualización y captura del resultado de la triangulación, mostrando claramente la estructura de triángulos (“Show Faces” y “Show Wireframe”).
 
-4. **Limpieza y reparación de topología:**  
-   Se eliminaron caras y vértices duplicados, se cerraron agujeros y se corrigieron errores topológicos.
+3. Limpieza y Reparación Topológica
+Eliminación de triángulos artificiales con el filtro Select Faces with edges longer than....
 
-5. **Simplificación:**  
-   La malla se redujo a menos de 10.000 triángulos usando *Quadric Edge Collapse Decimation*.
+Aplicación de filtros de selección para detectar y borrar errores topológicos: caras autointersectadas, aristas y vértices non-manifold, componentes desconectados.
 
-6. **Parametrización UV:**  
-   Se aplicó *Parametrization: Trivial Per-Triangle* para asignar coordenadas de textura.
+Cierre progresivo de fisuras con el filtro Close Holes.
 
-7. **Generación de textura:**  
-   Se transfirió el color por vértice a una textura 2D con *Transfer: Vertex Attributes to Texture*.
+4. Simplificación de la Malla
+Duplicado de la malla antes de simplificar.
 
-8. **Exportación:**  
-   Se exportó la malla final junto con la textura en formato compatible con visualización web.
+Reducción de la malla a menos de 10,000 vértices con el filtro Quadric Edge Collapse Decimation.
 
-9. **Publicación:**  
-   Los archivos se subieron a este repositorio y se publicó el modelo en GitHub Pages mediante un visor X3Dom.
+Nueva comprobación y reparación de errores topológicos.
 
-## Archivos incluidos
+5. Parametrización y Texturizado
+Generación de coordenadas de textura con Parametrization: Voronoi Atlas.
 
-- `burney_relief_queen_of_the_night_draft.obj` / `.x3d` / `.ply`: Modelo 3D final simplificado y texturizado.
-- `burney_relief_queen_of_the_night_draft.png` / `.jpg`: Textura generada.
-- `burney_relief_queen_of_the_night_draft_original.xyz` / `.ply`: Nube de puntos original.
-- `README.md`: Este documento.
-- `index.html`: Archivo para visualización web del modelo.
+Transferencia del color por vértice de la malla original a textura mediante Transfer: Vertex Attributes to Texture.
 
-## Visualización online
+Asignación y comprobación de la textura sobre la malla simplificada.
 
-Puedes ver el modelo publicado en:  
-[ENLACE_A_TU_GITHUB_PAGES]
+6. Exportación y Publicación
+Exportación de la malla final en formato X3D, asegurando la correcta inclusión de normales y coordenadas de textura.
+
+Revisión de nombres de archivos y carpetas (sin espacios, tildes ni caracteres especiales).
+
+Creación de la página web con X3Dom y subida de todos los archivos al repositorio.
+
+Configuración de GitHub Pages para la publicación online.
 
 ## Créditos y licencia
 
